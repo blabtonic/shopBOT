@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 from splinter import Browser
 
 #Config#
-product = "k1f736npe" #copy and past last part of URL here 
+product = "k1f736npe" #copy and past last part of URL here / prompt user to enter in 
 shopURL = "http://www.supremenewyork.com/shop/all"
 mainURL = "http://www.supremenewyork.com" 
 checkoutURL = "https://www.supremenewyork.com/checkout"
@@ -17,13 +17,14 @@ email = ""
 tel = ""
 address = ""
 city = ""
-postcode = ""
-country = ""
-cctype = ""
+postcode = "" 
+state = "" #ex TWO CAPITAL LETTERS
+country = "" #ex ALL CAPS
+cctype = "" #ex Visa Mastercard American Express
 ccnumber = ""
-ccexpmonth = ""
-ccexpyear = ""
-cccvv = ""
+ccexpmonth = "" #ex 04
+ccexpyear = "" #ex 2019
+cccvvcc = "" #ex 194
 
 #Functions#
 def main():
@@ -54,7 +55,7 @@ def buyProduct(url):
     #add to cart
     browser.find_by_name('commit').click()
     print('Added to cart')
-    time.sleep(3)
+    time.sleep(1)
 
     #try to checkout
     browser.visit(checkoutURL)
@@ -62,5 +63,17 @@ def buyProduct(url):
 
     #fills info form
     browser.fill("order[billing_name]",name)
+    browser.fill("order[email]",email)
+    browser.fill("tl",tel)
+    browser.select("order[billing_country]", country)
+    browser.select("order[billing_state]", state)
+    browser.fill("order[billing_address]",address)
+    browser.fill("order[billing_city]",city)
+    browser.fill("order[billing_zip]", postcode)
+    #browser.select("credit_card[type]", cctype)
+    browser.fill("credit_card[cnb]", ccnumber)
+    browser.select("credit_card[month]", ccexpmonth)
+    browser.select("credit_card[year]", ccexpyear)
+    browser.find_by_css(".terms").click()
 
 main()
