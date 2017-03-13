@@ -6,25 +6,25 @@ from bs4 import BeautifulSoup
 from splinter import Browser
 
 #Config#
-product = "k1f736npe" #copy and past last part of URL here / prompt user to enter in 
+product = "lia9ben4m" #copy and past last part of URL here
 shopURL = "http://www.supremenewyork.com/shop/all"
 mainURL = "http://www.supremenewyork.com" 
 checkoutURL = "https://www.supremenewyork.com/checkout"
 sizeOption = "Medium"
 
-name = ""
-email = ""
-tel = ""
-address = ""
-city = ""
-postcode = "" 
-state = "" #ex TWO CAPITAL LETTERS
-country = "" #ex ALL CAPS
-cctype = "" #ex Visa Mastercard American Express
-ccnumber = ""
-ccexpmonth = "" #ex 04
-ccexpyear = "" #ex 2019
-cccvvcc = "" #ex 194
+name = "Doug Sander"
+email = "dsander1982@gmail.com"
+tel = "905 555 8224"
+address = "87 Free street"
+city = "Brampton"
+postcode = "L6B 2J1" 
+state = "ON" #ex TWO CAPITAL LETTERS
+country = "CANADA" #ex ALL CAPS
+cctype = "Visa" #ex Visa Mastercard American Express
+ccnumber = "00000000000000000000000"
+ccexpmonth = "01" #ex 04
+ccexpyear = "2019" #ex 2019
+cccvvcc = "000" #ex 194
 
 #Functions#
 def main():
@@ -64,16 +64,18 @@ def buyProduct(url):
     #fills info form
     browser.fill("order[billing_name]",name)
     browser.fill("order[email]",email)
-    browser.fill("tl",tel)
+    browser.fill("order[tel]",tel)
+    browser.fill("order[billing_address]",address)
+    browser.fill("order[billing_zip]", postcode)
+    browser.fill("order[billing_city]",city)
     browser.select("order[billing_country]", country)
     browser.select("order[billing_state]", state)
-    browser.fill("order[billing_address]",address)
-    browser.fill("order[billing_city]",city)
-    browser.fill("order[billing_zip]", postcode)
     #browser.select("credit_card[type]", cctype)
     browser.fill("credit_card[cnb]", ccnumber)
     browser.select("credit_card[month]", ccexpmonth)
     browser.select("credit_card[year]", ccexpyear)
     browser.find_by_css(".terms").click()
+    browser.fill("credit_card[vval]", cccvvcc)
+
 
 main()
