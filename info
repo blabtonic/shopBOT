@@ -1,0 +1,20 @@
+Install firefox if not already using
+
+Install beautifulsoup using pip
+pip could be installed already on your computer in iterm type in man pip if a manual page comes up you have pip installed
+if not go into iterm and use sudo easy_install pip
+terminal will prompt you for your loginpassword
+
+once pip is installed in iterm type in: pip install beautifulsoup4
+
+also install splinter
+pip install splinter
+
+within home directory type in nano .bash_profile
+within .bash_profile type in
+export PATH=$PATH:/folder where geckodriver located/geckodriver
+
+
+
+edit main.py with your information
+run main.py using python main.py in shopBOT folder
