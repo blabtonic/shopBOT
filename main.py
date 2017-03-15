@@ -12,6 +12,7 @@ mainURL = "http://www.supremenewyork.com"
 checkoutURL = "https://www.supremenewyork.com/checkout"
 sizeOption = "Medium"
 
+# Fill out your information here 
 name = "Doug Sander"
 email = "dsander1982@gmail.com"
 tel = "905 555 8224"
@@ -20,11 +21,11 @@ city = "Brampton"
 postcode = "L6B 2J1" 
 state = "ON" #ex TWO CAPITAL LETTERS
 country = "CANADA" #ex ALL CAPS
-cctype = "Visa" #ex Visa Mastercard American Express
-ccnumber = "00000000000000000000000"
-ccexpmonth = "01" #ex 04
-ccexpyear = "2019" #ex 2019
-cccvvcc = "000" #ex 194
+cctype = "Visa" #CREDIT CARD TYPE ex Visa Mastercard American Express
+ccnumber = "00000000000000000000000" #CREDIT CARD NUMBER
+ccexpmonth = "01" #EXPIRE MONTH ex 04
+ccexpyear = "2019" #EXPIRE YEAR ex 2019
+cccvvcc = "000" #CVS ex 194
 
 #Functions#
 def main():
